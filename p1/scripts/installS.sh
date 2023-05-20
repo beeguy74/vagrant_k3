@@ -12,7 +12,7 @@ chmod 400 /root/.ssh/authorized_keys
 chown root:root /root/.ssh/authorized_keys
 
 # Add current node in  /etc/hosts
-echo "127.0.0.1 $(hostname)" >> /etc/hosts
+# echo "127.0.0.1 $(hostname)" >> /etc/hosts
 
 
 echo "-----------------Installing k3s v1.21.4+k3s1..."
