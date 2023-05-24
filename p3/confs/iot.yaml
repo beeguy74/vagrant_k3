@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: development
+  labels:
+    app: argocd-iot
+spec:
+  # Project description
+  description: ArgoCD Project to deploy Wil App locally
+  # Allow manifests to deploy only from 42 acaren student (jesuisstan) git repository
+  sourceRepos:
+    - "https://github.com/jesuisstan/*"
+  # Only permit to deploy applications in the same cluster
+  destinations:
+    - namespace: dev
+      server: https://kubernetes.default.svc
+  # Enables namespace orphaned resource monitoring.
+  orphanedResources:
+    warn: false
