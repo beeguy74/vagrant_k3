@@ -11,3 +11,18 @@ kubectl create namespace dev
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ## Use the watch command to ensure the pods are running and ready.
 kubectl wait --for=condition=Ready pods --all -n argocd
+
+
+
+
+## We want our work inside ArgoCD to be hosted in a dedicated project named iot-project. 
+## Allow only in-cluster deployments in the dev namespace and only for the acaren github repositories.
+kubectl apply -f ../confs/project.yaml -n argocd
+
+## Next, we will create an ArgoCD Application which will synchronize our Kubernetes manifests
+## hosted in the app folder on our github repository feature branch featurebranch_1 with the associated resources inside the dev namespace on our local cluster:
+kubectl apply -f ../confs/application.yaml -n argocd
+
+
+## to get access to ArgoCD’s web interface, we need to expose the argocd-server service on our local machine:
+kubectl port-forward svc/argocd-server -n argocd 8888:443
