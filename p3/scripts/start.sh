@@ -15,7 +15,7 @@ echo -e "\e[32m\nApplying stable manifests for ArgoCD:\e[0m"
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ## Use the watch command to ensure the pods are running and ready.
 echo -e "\e[32m\nAwaiting pods are running and ready...\e[0m"
-kubectl wait --for=condition=Ready pods --all -n argocd --timeout=60s
+kubectl wait --for=condition=Ready pods --all -n argocd --timeout=120s
 
 echo -e "\e[32m\nApplying new password to ArgoCD:\e[0m"
 kubectl -n argocd patch secret argocd-secret \
@@ -36,7 +36,7 @@ echo -e "\e[32m\nApplying config 'application.yaml':\e[0m"
 kubectl apply -f ../confs/application.yaml -n argocd
 
 echo -e "\e[32m\nAwaiting pods are running and ready...\e[0m"
-kubectl wait --for=condition=Ready pods --all -n argocd --timeout=30s
+kubectl wait --for=condition=Ready pods --all -n argocd --timeout=42s
 
 
 echo -e "\e[33m\nARGO CD IS  DEPLOYED!\nRUN THE THE FOLLOWING CMD TO WORK WITH IT:\n
