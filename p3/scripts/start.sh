@@ -41,10 +41,10 @@ kubectl wait --for=condition=Ready pods --all -n argocd --timeout=30s
 
 echo -e "\e[33m\nARGO CD IS  DEPLOYED!\nRUN THE THE FOLLOWING CMD TO WORK WITH IT:\n
 1) to access the dashboard:\n
-kubectl port-forward svc/argocd-server -n argocd 8888:443
+kubectl port-forward svc/argocd-server -n argocd 9999:443
 \n
 2) to access wil's app:\n
-kubectl port-forward svc/wil-playground -n dev 9999:8888
+kubectl port-forward svc/wil-playground -n dev 8888:8888
 \e[0m"
 
 ### to get access to ArgoCD’s web interface, we need to expose the argocd-server service on local machine:
