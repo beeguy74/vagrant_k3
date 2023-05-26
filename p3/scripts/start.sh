@@ -2,6 +2,7 @@
 #newgrp docker
 
 ##Let’s setup our cluster with 2 worker nodes (–agents in k3d command line) and expose the HTTP load balancer on the host on port 8080 (so that we can interact with our application)
+##--api-port - by default, no API-Port is exposed. It’s used to have k3s‘s API-Server listening on port 6443
 echo -e "\e[32m\nCreating cluster:\e[0m"
 k3d cluster create my-cluster --api-port 6443 -p 8080:80@loadbalancer --agents 2 --wait
 
