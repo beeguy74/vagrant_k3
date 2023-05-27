@@ -45,9 +45,6 @@ echo -e "\e[33m\nARGO CD IS  DEPLOYED!\nRUN THE THE FOLLOWING CMD TO WORK WITH I
 kubectl port-forward svc/argocd-server -n argocd 9999:443
 \n
 2) to access wil's app:\n
-kubectl port-forward svc/wil-playground -n dev 8888:8888
+kubectl port-forward svc/wil42-app-service -n dev 8888:8888
 \e[0m"
 
-### to get access to ArgoCD’s web interface, we need to expose the argocd-server service on local machine:
-#echo -e "\e[32m\nExposing the argocd-server service on our local machine:\e[0m"
-#kubectl port-forward svc/argocd-server -n argocd 8888:443
