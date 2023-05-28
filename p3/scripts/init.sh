@@ -6,6 +6,8 @@ sudo apt upgrade -y
 
 sudo apt install curl -y
 
+echo -e "\e[32m\nInstalling Docker & Kubectl dependencies:\e[0m"
+sudo apt-get install -y apt-transport-https ca-certificates curl
 
 ## Install Docker
 echo -e "\e[32m\nInstalling Docker:\e[0m"
@@ -22,8 +24,6 @@ sudo usermod -aG docker $USER
 
 
 ## Install Kubectl
-echo -e "\e[32m\nInstalling Kubectl:\e[0m"
-sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
