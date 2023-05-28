@@ -7,7 +7,7 @@ spec:
   source:
     repoURL: https://github.com/jesuisstan/acaren_iot_p3.git
     targetRevision: HEAD
-    path: app
+    path: ./
     directory:
       recurse: true
   destination:
