@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
     end
 
   server.vm.provision "shell", inline: <<-SHELL
+      sudo apt install net-tools
       export INSTALL_K3S_VERSION=v1.21.4+k3s1
       export INSTALL_K3S_EXEC="server --write-kubeconfig-mode 644 --advertise-address=192.168.56.110 --node-ip=192.168.56.110"
       curl -sfL https://get.k3s.io | sh -
@@ -36,6 +37,7 @@ Vagrant.configure("2") do |config|
   end
 
   server_worker.vm.provision "shell", inline: <<-SHELL
+      sudo apt install net-tools
       scp -o StrictHostKeyChecking=no root@192.168.56.110:/var/lib/rancher/k3s/server/token /tmp/token
       export INSTALL_K3S_VERSION=v1.21.4+k3s1
       export INSTALL_K3S_EXEC="agent --server https://192.168.56.110:6443 --token-file /tmp/token --node-ip=192.168.56.111"
