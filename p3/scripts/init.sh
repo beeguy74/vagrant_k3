@@ -7,7 +7,7 @@ sudo apt upgrade -y
 sudo apt install curl -y
 
 echo -e "\e[32m\nInstalling Docker & Kubectl dependencies:\e[0m"
-sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
 
 ## Install Docker
 echo -e "\e[32m\nInstalling Docker:\e[0m"
@@ -17,13 +17,11 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ## to use Docker without sudo:
 sudo groupadd docker
 sudo usermod -aG docker $USER
-sudo systemctl enable --now docker.service
-sudo systemctl enable --now containerd.service
-sudo systemctl start docker
 
 ## Install Kubectl
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
