@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/jammy64"
   config.vm.provision "file", source: "~/.ssh/id_ed25519.pub", destination: "/tmp/id_ed25519.pub"
   config.vm.provision "file", source: "~/.ssh/id_ed25519", destination: "/tmp/id_ed25519"
   config.vm.provision "shell", inline: <<-SHELL
