@@ -1,0 +1,21 @@
+# Vagrant
+.vagrant/
+
+# VirtualBox
+*.vbox
+*.vbox-prev
+*.vdi
+*.vmdk
+*.vagrantfile
+
+# Provider-specific
+/.vagrant
+/.vagrantignore
+/.vagrantfile
+
+# Ignore synced folders
+.vagrant-sync/
+.vagrant-ssh/
+
+# Log files
+*.log
