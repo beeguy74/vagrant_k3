@@ -5,7 +5,6 @@ metadata:
   labels:
     app: argocd-iot
 spec:
-  # Project description
   description: ArgoCD Project to deploy Wil App locally
   # Allow manifests to deploy only from 42 acaren student (jesuisstan) git repository
   sourceRepos:
