@@ -40,13 +40,12 @@ echo -e "\e[32m\nAwaiting pods are running and ready...\e[0m"
 kubectl wait --for=condition=Ready pods --all -n argocd --timeout=42s
 
 
-echo -e "\e[33m\nARGO CD IS  DEPLOYED!\nRUN THE THE FOLLOWING CMD TO WORK WITH IT:\n
-1) to access the web dashboard:\n
-kubectl port-forward svc/argocd-server -n argocd 9999:443
+echo -e "\e[33m\nARGO CD IS  DEPLOYED!\nFOLLOW THE INSTRUCTION TO WORK WITH IT:\n
+1) to access ArgoCD web dashboard run cmd:\n
+\e[35mkubectl port-forward svc/argocd-server -n argocd 9999:443\e[33m
 \n
-2) to access wil's app:\n
-proceed to http://localhost:8080/wil42-app \n
-or run cmd:
-kubectl port-forward svc/wil42-app-service -n dev 8888:8888
-\e[0m"
+2) to access wil42 app:\n
+proceed to \e[34mhttp://localhost:8080/wil42-app\e[33m \n
+or run cmd:\n
+\e[35mkubectl port-forward svc/wil42-app-service -n dev 8888:8888\e[0m"
 
