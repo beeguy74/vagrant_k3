@@ -13,7 +13,13 @@ kubectl create namespace dev
 
 ##  apply this script from the ArgoCD team, which will take care of the rest.
 echo -e "\e[32m\nApplying stable manifests for ArgoCD:\e[0m"
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+## test commands for argcod + ingress
+##  wget https://github.com/argoproj/argo-cd/raw/v1.6.2/manifests/install.yaml
+##  sed -i 's/shared\/app/shared\/app\n        \- \-\-insecure\n        \- \-\-rootpath\n        \- \/argocd/g' install.yaml 
+
+
+ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ## Use the watch command to ensure the pods are running and ready.
 echo -e "\e[32m\nAwaiting pods are running and ready...\e[0m"
 kubectl wait --for=condition=Ready pods --all -n argocd --timeout=120s
