@@ -38,3 +38,4 @@ echo -e "\e[32m\nInstalling k3d:\e[0m"
 curl -s https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 
 echo -e "\e[33m\nINSTALLATION SUCCESSFULLY COMPLETED\e[0m\n"
+newgrp docker
