@@ -21,7 +21,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ## to use Docker without sudo:
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
+sudo systemctl enable --now docker.service
+sudo systemctl enable --now containerd.service
+sudo systemctl start docker
 
 ## Install Kubectl
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
