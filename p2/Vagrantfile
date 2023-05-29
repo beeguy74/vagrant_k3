@@ -16,8 +16,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "confs/app3", destination: "/tmp/app3"
   config.vm.provider "virtualbox" do |v|
     v.name = "evlasovS"
-    v.memory = 1024
-    v.cpus = 1
+    v.memory = 2048
+    v.cpus = 2
   end
   config.vm.provision "shell", inline: <<-SHELL
     echo "127.0.1.1 $(hostname)" >> /etc/hosts
