@@ -38,9 +38,11 @@ Vagrant.configure("2") do |config|
     mv /tmp/app2 /home/vagrant
     mv /tmp/app3 /home/vagrant
 
-    /usr/local/bin/kubectl create configmap app-one-html --from-file /home/vagrant/app1/index.html
-    /usr/local/bin/kubectl create configmap app-two-html --from-file /home/vagrant/app2/index.html
-    /usr/local/bin/kubectl create configmap app-three-html --from-file /home/vagrant/app3/index.html
+    /usr/local/bin/kubectl create configmap app-one-html --from-file /home/vagrant/app1/index.html --namespace=kube-system
+    /usr/local/bin/kubectl create configmap app-two-html --from-file /home/vagrant/app2/index.html --namespace=kube-system
+
+    /usr/local/bin/kubectl create configmap app-three-html --from-file /home/vagrant/app3/index.html --namespace=kube-system
+
 
     /usr/local/bin/kubectl apply -f /home/vagrant/deployment.yaml
   SHELL
